@@ -1,0 +1,1 @@
+<h2>This is a shop page</h2>

@@ -56,6 +56,21 @@ $routes->group('',['filter' => 'adminauth'], function($routes){
 // $routes->post('/books/edit/(:num)','Book::edit/$1',['filter' => 'adminauth']);
 // $routes->get('/books/delete/(:num)','Book::delete/$1',['filter' => 'adminauth']);
 
+
+// practice
+$routes->add('product/(:any)/(:any)','Shop::product/$1/$2');
+
+$routes->group('admin',function($routes){
+	$routes->add('user','Admin\Users::index');
+	$routes->add('users','Admin\Users::getAllUsers');
+	$routes->add('product/(:any)/(:any)','Admin\Shop::product/$1/$2');
+
+	// Blog routes
+	$routes->add('blog','Admin\Blog::index');
+	$routes->get('blog/new','Admin\Blog::createNew');
+	$routes->post('blog/new','Admin\Blog::saveBlog');
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
